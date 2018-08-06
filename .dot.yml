@@ -4,13 +4,17 @@ role:
     - name: rust
       os: ["darwin"]
   install:
+    # https://www.rust-lang.org/en-US/other-installers.html
     - command: curl https://sh.rustup.rs -sSf | sh -s -- -y # --no-modify-path
       os: ["!darwin"]
   post_install:
-    - rustup help completions
+    # FIXME: source ~/.profile
+    - $HOME/.cargo/bin/rustup help completions
     # Bash: $ rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
     # Bash (brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
     # ZSH: $ rustup completions zsh > ~/.zfunc/_rustup; fpath+=~/.zfunc
+    - $HOME/.cargo/bin/rustc --version
+    - $HOME/.cargo/bin/cargo --version
   # env:
   #   RUSTUP_HOME: ~/.rustup
   #   CARGO_HOME: ...

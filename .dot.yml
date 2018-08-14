@@ -8,8 +8,10 @@ role:
     - command: curl https://sh.rustup.rs -sSf | sh -s -- -y # --no-modify-path
       os: ["!darwin"]
   post_install:
+    # - shell: /bin/bash
+    #   command: source ~/.profile
     - |
-      source ~/.profile # Add "$HOME/.cargo/bin" to PATH
+      . ~/.profile # Add "$HOME/.cargo/bin" to PATH
       # TODO rustup help completions
       # Bash:       $ rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
       # Bash(brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion

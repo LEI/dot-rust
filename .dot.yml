@@ -9,13 +9,13 @@ role:
       os: ["!darwin"]
   post_install:
     # - shell: /bin/bash
-    #   command: source ~/.profile
+    #   command: source ~/.profile # Add "$HOME/.cargo/bin" to PATH
+    # TODO rustup help completions
+    # Bash:       $ rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
+    # Bash(brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
+    # Zsh:        $ rustup completions zsh > ~/.zfunc/_rustup; fpath+=~/.zfunc
     - |
-      . ~/.profile # Add "$HOME/.cargo/bin" to PATH
-      # TODO rustup help completions
-      # Bash:       $ rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
-      # Bash(brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
-      # Zsh:        $ rustup completions zsh > ~/.zfunc/_rustup; fpath+=~/.zfunc
+      . ~/.profile
       rustc --version
       cargo --version
   # env:

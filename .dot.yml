@@ -15,6 +15,7 @@ role:
     # Bash(brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
     # Zsh:        $ rustup completions zsh > ~/.zfunc/_rustup; fpath+=~/.zfunc
     - |
+      cat ~/.profile
       . ~/.profile
       rustc --version
       cargo --version

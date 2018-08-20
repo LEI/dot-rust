@@ -8,17 +8,16 @@ role:
     - command: curl https://sh.rustup.rs -sSf | sh -s -- -y # --no-modify-path
       os: ["!darwin"]
   post_install:
-    # - shell: /bin/bash
-    #   command: source ~/.profile # Add "$HOME/.cargo/bin" to PATH
     # TODO rustup help completions
     # Bash:       $ rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
     # Bash(brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
     # Zsh:        $ rustup completions zsh > ~/.zfunc/_rustup; fpath+=~/.zfunc
-    - |
-      cat ~/.profile
-      . ~/.profile
-      rustc --version
-      cargo --version
+    - shell: /bin/bash
+      command: |
+        PATH="$PATH:$HOME/.cargo/bin" # . ~/.profile
+        rustc --version
+        cargo --version
+    # - rustup self update
   # env:
   #   RUSTUP_HOME: ~/.rustup
   #   CARGO_HOME: ...

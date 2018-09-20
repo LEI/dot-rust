@@ -1,7 +1,7 @@
 ---
 role:
   pkg:
-    - name: rust
+    - name: rust # rustup-init
       os: ["darwin"]
   install:
     # https://www.rust-lang.org/en-US/other-installers.html

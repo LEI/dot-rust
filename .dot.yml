@@ -12,12 +12,15 @@ role:
     # Bash:       $ rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
     # Bash(brew): $ rustup completions bash > $(brew --prefix)/etc/bash_completion.d/rustup.bash-completion
     # Zsh:        $ rustup completions zsh > ~/.zfunc/_rustup; fpath+=~/.zfunc
+    # . ~/.profile
     - shell: /bin/bash
-      command: |
-        PATH="$PATH:$HOME/.cargo/bin" # . ~/.profile
-        rustc --version
-        cargo --version
+      command: rustc --version
+      env: PATH="$PATH:$HOME/.cargo/bin"
+    - command: cargo --version
+      env: PATH="$PATH:$HOME/.cargo/bin"
     # - rustup self update
   # env:
   #   RUSTUP_HOME: ~/.rustup
   #   CARGO_HOME: ...
+  #rustup override set stable
+  #rustup update stable
